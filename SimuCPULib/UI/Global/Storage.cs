@@ -22,6 +22,8 @@ namespace SimuCPULib.UI.Global
 			set { Storage._elementFactory = value; }
 		}
 
+	    public static string CPUInst { set; get; } = string.Empty;
+
 		private static Graphics _graphics;
 
 		/// <summary>

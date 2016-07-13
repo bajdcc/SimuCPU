@@ -6,20 +6,25 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using SimuCPULib.CPU.Core;
+using SimuCPULib.CPU.Test;
+using SimuCPULib.GPU.Core;
 
 namespace SimuCPULib.Common.Graph
 {
     /// <summary>
     /// 电路
     /// </summary>
-    public class Circult : CircultBase<Status, CommonNode<Status>>
-	{
+    public class Circult : CircultBase<Status, CommonNode<Status>>, IGPUDisplay
+    {
 		private MarkableArgs _hover;//悬停参数
 		private MarkableArgs _focus;//焦点参数
 		private Timer _delay;//悬停时长
 		private bool _delayTip = false;//悬停标志
 		private bool _drag = false;//拖曳标志
         private Rectangle _bound = new Rectangle(Point.Empty, Storage.Size);
+        private Machine _machine;
+        private CPUContext _ctx;
 
         public Circult()
 		{
@@ -61,6 +66,9 @@ namespace SimuCPULib.Common.Graph
                 }
             }
             Storage.Graphics.Clear(Constants.WindowBackground);
+            _machine = new Machine() {Display = this};
+            Storage.CPUInst = TestInst.Inst;
+            _ctx = _machine.Compile(Storage.CPUInst);
         }
 
         /// <summary>
@@ -115,12 +123,7 @@ namespace SimuCPULib.Common.Graph
 
         private void Update()
         {
-            // TODO: CPU Core Workflow
-            var r = new Random();
-            var k = r.Next(Nodes.Count);
-            var n = Nodes[GetGuidById(k)];
-            n.Next.Color = Color.Red.ToArgb();
-            n.Update();
+            _machine.Step(_ctx);
         }
 
         private void DoFocus(MarkableArgs obj, Point pt)
@@ -266,5 +269,17 @@ namespace SimuCPULib.Common.Graph
 		{
 		    _hover?.Draw.Handle(HandleType.Hover, pt);
 		}
-	}
+
+        public void SetPixel(Point point, int color)
+        {
+            var node = Nodes[GetGuidById(point.X*Defines.WIDTH_COUNT + point.Y)];
+            node.Next.Color = color;
+            node.Update();
+        }
+
+        public Size GetSize()
+        {
+            return new Size(Defines.WIDTH_COUNT, Defines.HEIGHT_COUNT);
+        }
+    }
 }

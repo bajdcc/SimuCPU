@@ -56,6 +56,30 @@
     <Compile Include="Common\Simulator\Constants.cs" />
     <Compile Include="Common\Simulator\Defines.cs" />
     <Compile Include="Common\Simulator\ISimulate.cs" />
+    <Compile Include="CPU\Component\Memory.cs" />
+    <Compile Include="CPU\Core\CPUCode.cs" />
+    <Compile Include="CPU\Core\CPUContext.cs" />
+    <Compile Include="CPU\Core\CPUDefines.cs" />
+    <Compile Include="CPU\Core\CPUFlag.cs" />
+    <Compile Include="CPU\Core\CPUIns.cs" />
+    <Compile Include="CPU\Core\CPUReg.cs" />
+    <Compile Include="CPU\Core\Machine.cs" />
+    <Compile Include="CPU\Exception\CPURuntimeException.cs" />
+    <Compile Include="CPU\Inst\IInstHandler.cs" />
+    <Compile Include="CPU\Inst\InsInc.cs" />
+    <Compile Include="CPU\Inst\InsJump.cs" />
+    <Compile Include="CPU\Inst\InsMove.cs" />
+    <Compile Include="CPU\Inst\InsHalt.cs" />
+    <Compile Include="CPU\Inst\InsInt.cs" />
+    <Compile Include="CPU\Inst\InsNop.cs" />
+    <Compile Include="CPU\Inst\InstFactory.cs" />
+    <Compile Include="CPU\Interrupt\IIntHandler.cs" />
+    <Compile Include="CPU\Interrupt\Int21.cs" />
+    <Compile Include="CPU\Interrupt\IntFactory.cs" />
+    <Compile Include="CPU\Parser\OpParser.cs" />
+    <Compile Include="CPU\Test\TestInst.cs" />
+    <Compile Include="GPU\Core\DisplayHelper.cs" />
+    <Compile Include="GPU\Core\IGPUDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Drawing\GraphicsElement.cs" />
     <Compile Include="UI\Drawing\GraphicsRenderer.cs" />
@@ -83,9 +107,7 @@
     <Compile Include="UI\Renderer\SolidBrushRenderer.cs" />
     <Compile Include="UI\Renderer\TextElementRenderer.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CPU\Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
