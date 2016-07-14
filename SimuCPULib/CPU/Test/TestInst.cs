@@ -10,11 +10,11 @@ namespace SimuCPULib.CPU.Test
     {
         public static string Inst => "nop\n" +
                                      "mov ah,02h\n" +
-                                     "mov dl,'0'\n" +
+                                     "mov dl,'1'\n" +
                                      ".LOOP\n" +
                                      "int 21h\n" +
                                      "inc dl\n" +
-                                     "jmp loop\n" +
+                                     //"jmp loop\n" +
                                      "halt\n";
     }
 }

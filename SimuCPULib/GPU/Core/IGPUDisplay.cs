@@ -9,8 +9,14 @@ namespace SimuCPULib.GPU.Core
 {
     public interface IGPUDisplay
     {
-        Size GetSize();
+        Size GetFontSize();
+
+        Size GetScreenSize();
 
         void SetPixel(Point point, int color);
+
+        Color GetFgColor();
+
+        Color GetBkColor();
     }
 }

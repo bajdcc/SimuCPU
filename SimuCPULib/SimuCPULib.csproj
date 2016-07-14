@@ -78,7 +78,10 @@
     <Compile Include="CPU\Interrupt\IntFactory.cs" />
     <Compile Include="CPU\Parser\OpParser.cs" />
     <Compile Include="CPU\Test\TestInst.cs" />
+    <Compile Include="GPU\Core\AsciiFactory.cs" />
     <Compile Include="GPU\Core\DisplayHelper.cs" />
+    <Compile Include="GPU\Core\FontBuilder.cs" />
+    <Compile Include="GPU\Core\GPUDefines.cs" />
     <Compile Include="GPU\Core\IGPUDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Drawing\GraphicsElement.cs" />

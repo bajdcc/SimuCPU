@@ -49,9 +49,9 @@ namespace SimuCPULib.Common.Graph
 
         private void _Create()
         {
-            for (int i = 0; i < Defines.WIDTH_COUNT; i++)
+            for (int j = 0; j < Defines.HEIGHT_COUNT; j++)
             {
-                for (int j = 0; j < Defines.HEIGHT_COUNT; j++)
+                for (int i = 0; i < Defines.WIDTH_COUNT; i++)
                 {
                     var node = CreateNode();
                     node.Location = new Point(
@@ -277,9 +277,24 @@ namespace SimuCPULib.Common.Graph
             node.Update();
         }
 
-        public Size GetSize()
+        public Size GetFontSize()
+        {
+            return GPUDefines.FontSize;
+        }
+
+        public Size GetScreenSize()
         {
             return new Size(Defines.WIDTH_COUNT, Defines.HEIGHT_COUNT);
+        }
+
+        public Color GetFgColor()
+        {
+            return Color.White;
+        }
+
+        public Color GetBkColor()
+        {
+            return Color.Black;
         }
     }
 }

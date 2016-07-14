@@ -5,25 +5,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimuCPULib.Common.Simulator;
 
 namespace SimuCPULib.GPU.Core
 {
     public static class DisplayHelper
     {
-        private static Font _font = new Font(new FontFamily("微软雅黑"), 10);
-
         public static void ShowChar(IGPUDisplay display, char ch)
         {
             Trace.WriteLine($"[GPU] Char={ch}", nameof(DisplayHelper));
-            var size = display.GetSize();
-            var bmp = new Bitmap(size.Width, size.Height);
-            var g = Graphics.FromImage(bmp);
-            g.Clear(Color.White);
-            g.DrawString(ch.ToString(), _font, Brushes.Black, new PointF(0, 0));
-            foreach (var pt in Enumerable.Range(0, size.Width * size.Height)
-                .Select(a => new Point(a % size.Width, a / size.Height)))
+            var bytes = AsciiFactory.GetBytesOfAscii(ch);
+            var size = display.GetFontSize();
+            var fg = display.GetFgColor().ToArgb();
+            var bk = display.GetBkColor().ToArgb();
+            for (int i = 0; i < size.Height; i++)
             {
-                display.SetPixel(pt, bmp.GetPixel(pt.X, pt.Y).GetBrightness() > 0.5f ? Color.Black.ToArgb() : Color.White.ToArgb());
+                for (int j = 0; j < size.Width; j++)
+                {
+                    display.SetPixel(new Point(i, j), bytes[i*size.Width+j] != 0 ? fg : bk);
+                }
             }
         }
     }
