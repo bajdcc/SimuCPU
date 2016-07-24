@@ -1,14 +1,14 @@
-﻿using SimuCPULib.Common.Base;
-using SimuCPULib.Common.Element;
-using SimuCPULib.Common.Simulator;
-using SimuCPULib.UI.Global;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using SimuCPULib.Common.Base;
+using SimuCPULib.Common.Element;
+using SimuCPULib.Common.Simulator;
 using SimuCPULib.CPU.Core;
 using SimuCPULib.CPU.Test;
 using SimuCPULib.GPU.Core;
+using SimuCPULib.UI.Global;
 
 namespace SimuCPULib.Common.Graph
 {
@@ -20,8 +20,8 @@ namespace SimuCPULib.Common.Graph
 		private MarkableArgs _hover;//悬停参数
 		private MarkableArgs _focus;//焦点参数
 		private Timer _delay;//悬停时长
-		private bool _delayTip = false;//悬停标志
-		private bool _drag = false;//拖曳标志
+		private bool _delayTip;//悬停标志
+		private bool _drag;//拖曳标志
         private Rectangle _bound = new Rectangle(Point.Empty, Storage.Size);
         private Machine _machine;
         private CPUContext _ctx;
@@ -66,7 +66,7 @@ namespace SimuCPULib.Common.Graph
                 }
             }
             Storage.Graphics.Clear(Constants.WindowBackground);
-            _machine = new Machine() {Display = this};
+            _machine = new Machine {Display = this};
             Storage.CPUInst = TestInst.Inst;
             _ctx = _machine.Compile(Storage.CPUInst);
         }
@@ -94,7 +94,7 @@ namespace SimuCPULib.Common.Graph
 		/// <returns></returns>
 		private MarkableArgs _FindMarkable(Point pt)
 		{
-			var args = new MarkableArgs() { Pt = pt };
+			var args = new MarkableArgs { Pt = pt };
 			return Nodes.Values.Any(node => node.Handle(HandleType.Test, args) == 0) ? args : null;
 		}
 

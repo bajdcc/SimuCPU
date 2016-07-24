@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using SimuCPULib.CPU.Core;
 using SimuCPULib.CPU.Exception;
 using SimuCPULib.CPU.Parser;
@@ -23,7 +18,7 @@ namespace SimuCPULib.CPU.Interrupt
         {
             var list = new IIntHandler[]
             {
-                new Int21(), 
+                new Int21() 
             };
             foreach (var i in list)
             {

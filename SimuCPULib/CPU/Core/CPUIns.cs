@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SimuCPULib.CPU.Core
+﻿namespace SimuCPULib.CPU.Core
 {
     public enum CPUIns
     {
@@ -32,6 +26,6 @@ namespace SimuCPULib.CPU.Core
         ShiftLeft,
         ShiftRight,
 
-        Compare,
+        Compare
     }
 }

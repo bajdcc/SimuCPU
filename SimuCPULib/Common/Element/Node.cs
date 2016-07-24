@@ -11,7 +11,7 @@ namespace SimuCPULib.Common.Element
     {
         public Node()
         {
-            base.Activate();
+            Activate();
         }
 
         public override void Advance()

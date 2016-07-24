@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace SimuCPULib.CPU.Core
+﻿namespace SimuCPULib.CPU.Core
 {
     public enum CPUFlagType
     {
@@ -13,12 +10,12 @@ namespace SimuCPULib.CPU.Core
         TF,
         IF,
         DF,
-        OF,
+        OF
     }
 
     public class CPUFlag
     {
-        private int bits = 0;
+        private int bits;
 
         public bool Halt { set; get; } = false;
 

@@ -1,8 +1,7 @@
-﻿using SimuCPULib.Common.Base;
-using SimuCPULib.Common.Element;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using SimuCPULib.Common.Base;
+using SimuCPULib.Common.Element;
 
 namespace SimuCPULib.Common.Graph
 {

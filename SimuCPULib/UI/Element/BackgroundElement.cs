@@ -1,11 +1,6 @@
-﻿using SimuCPULib.UI.Drawing;
+﻿using System.Drawing;
+using SimuCPULib.UI.Drawing;
 using SimuCPULib.UI.Global;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
 
 namespace SimuCPULib.UI.Element
 {

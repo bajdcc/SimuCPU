@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SimuCPULib.CPU.Exception
+﻿namespace SimuCPULib.CPU.Exception
 {
     public enum CPURuntimeErr
     {
         AccessViolation,
         InvalidAddress,
         InvalidLabel,
-        InvalidInstruction,
+        InvalidInstruction
     }
 
     public class CPURuntimeException : System.Exception

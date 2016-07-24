@@ -1,14 +1,8 @@
-﻿using SimuCPULib.Common.Graph;
-using SimuCPULib.Common.Simulator;
-using SimuCPULib.UI.Global;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using SimuCPULib.Common.Graph;
+using SimuCPULib.UI.Global;
 
 namespace SimuCPU
 {

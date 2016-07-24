@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SimuCPULib.Common.Simulator;
+using SimuCPULib.GPU.Ascii;
 
 namespace SimuCPULib.GPU.Core
 {

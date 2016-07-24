@@ -36,7 +36,7 @@ namespace SimuCPULib.Common.Base
 
 		public override string ToString()
 		{
-			return _name.ToString();
+			return _name;
 		}
 	}
 }

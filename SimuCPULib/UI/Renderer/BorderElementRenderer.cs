@@ -1,12 +1,7 @@
-﻿using SimuCPULib.Common.Simulator;
-using SimuCPULib.UI.Drawing;
+﻿using System.Drawing;
+using SimuCPULib.Common.Simulator;
 using SimuCPULib.UI.Element;
 using SimuCPULib.UI.Global;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 
 namespace SimuCPULib.UI.Renderer
 {

@@ -1,12 +1,12 @@
-﻿using SimuCPULib.Common.Base;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using SimuCPULib.Common.Base;
 using SimuCPULib.Common.Drawing;
 using SimuCPULib.Common.Graph;
 using SimuCPULib.Common.Simulator;
 using SimuCPULib.UI.Drawing;
 using SimuCPULib.UI.Element;
 using SimuCPULib.UI.Global;
-using System.Collections.Generic;
-using System.Drawing;
 
 namespace SimuCPULib.Common.Element
 {

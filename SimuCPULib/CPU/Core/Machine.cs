@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using SimuCPULib.CPU.Component;
 using SimuCPULib.CPU.Exception;
 using SimuCPULib.CPU.Inst;
@@ -32,7 +28,7 @@ namespace SimuCPULib.CPU.Core
                     L = a, Index = b
                 })
                 .Where(a => a.L.StartsWith(CPUDefines.LABEL_PREFIX))
-                .Select(a => new { Name = a.L.Substring(1).ToLower(), Index = a.Index})
+                .Select(a => new { Name = a.L.Substring(1).ToLower(), a.Index})
                 .ToDictionary(a => a.Name, a => a.Index);
             return new CPUContext
             {
@@ -52,29 +48,27 @@ namespace SimuCPULib.CPU.Core
             if (ip >= ctx.Code.Codes.Count)
                 throw new CPURuntimeException(CPURuntimeErr.AccessViolation, ip.ToString());
             var inst = ctx.Code.Codes[ip];
-            Trace.WriteLine($"[{ip}] {inst}", this.GetType().Name);
+            Trace.WriteLine($"[{ip}] {inst}", GetType().Name);
             var advance = true;
-            if (!inst.StartsWith(CPUDefines.LABEL_PREFIX))
+            if (!inst.StartsWith(CPUDefines.LABEL_PREFIX) &&
+                !inst.StartsWith(CPUDefines.COMMENT_PREFIX))
                 advance = HandleInst(ctx, inst);
             if (advance && ip < ctx.Code.Codes.Count)
                 ctx.Reg.eip.Bit32++;
         }
 
-        static Regex reInst = new Regex(@"(\w+)(.*)", RegexOptions.Compiled);
+        static readonly Regex ReInst = new Regex(@"(\w+)(.*)", RegexOptions.Compiled);
 
         private bool HandleInst(CPUContext ctx, string inst)
         {
-            var m = reInst.Match(inst);
+            var m = ReInst.Match(inst);
             if (m.Success)
             {
                 var i = m.Groups[1].Value;
                 var op = m.Groups[2].Value.Trim();
                 return InstFactory.HandleInst(this, ctx, i, op);
             }
-            else
-            {
-                throw new CPURuntimeException(CPURuntimeErr.InvalidInstruction, inst.ToString());
-            }
+            throw new CPURuntimeException(CPURuntimeErr.InvalidInstruction, inst);
         }
     }
 }

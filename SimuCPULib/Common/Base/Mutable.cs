@@ -1,5 +1,5 @@
-﻿using SimuCPULib.Common.Simulator;
-using System;
+﻿using System;
+using SimuCPULib.Common.Simulator;
 
 namespace SimuCPULib.Common.Base
 {
@@ -48,7 +48,7 @@ namespace SimuCPULib.Common.Base
 		/// <summary>
 		/// 激活（去除Zombie/Freeze状态）
 		/// </summary>
-		private bool _active = false;
+		private bool _active;
 
 		public bool Active
 		{
@@ -64,20 +64,20 @@ namespace SimuCPULib.Common.Base
                 //复制状态
                 _local.CopyFrom(_next);
 			    //触发状态更改事件
-			    OnValueUpdated?.Invoke(this, new MutableValueUpdatedEventArgs<T>() { Status = _local });
+			    OnValueUpdated?.Invoke(this, new MutableValueUpdatedEventArgs<T> { Status = _local });
 			}
 			else
 			{
 				_active = false;
 			    //触发状态激活事件
-			    OnStateUpdated?.Invoke(this, new MutableStateUpdatedEventArgs() { Active = false });
+			    OnStateUpdated?.Invoke(this, new MutableStateUpdatedEventArgs { Active = false });
 			}
 		}
 
 		public virtual void Activate()
 		{
 			_active = true;
-		    OnStateUpdated?.Invoke(this, new MutableStateUpdatedEventArgs() { Active = true });
+		    OnStateUpdated?.Invoke(this, new MutableStateUpdatedEventArgs { Active = true });
 		}
 
 		public virtual void Advance()

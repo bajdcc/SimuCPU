@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AsciiSettings xmlns="http://www.bajdcc.com">
+  <Fonts>
+    <Font Code="48">
+      <Path>
+        <Line>
+          <Points>
+            <From X="2" Y="3"></From>
+            <To X="4" Y="1"></To>
+            <To X="12" Y="1"></To>
+            <To X="14" Y="3"></To>
+          </Points>
+        </Line>
+        <Copy Vertical="false" Flip="true" Src="1" Dst="4" Count="3"></Copy>
+      </Path>
+    </Font>
+    <Font Code="49">
+      <Path>
+        <Line>
+          <Points>
+            <From X="2" Y="4"></From>
+            <To X="14" Y="4"></To>
+            <From X="3" Y="2"></From>
+            <To X="3" Y="3"></To>
+          </Points>
+        </Line>
+      </Path>
+    </Font>
+  </Fonts>
+</AsciiSettings>

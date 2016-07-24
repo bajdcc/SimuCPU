@@ -1,13 +1,10 @@
-﻿using SimuCPULib.UI.Drawing;
-using SimuCPULib.UI.Element;
-using SimuCPULib.UI.Renderer;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using SimuCPULib.UI.Drawing;
+using SimuCPULib.UI.Element;
+using SimuCPULib.UI.Renderer;
 
 namespace SimuCPULib.UI.Global
 {
@@ -18,8 +15,8 @@ namespace SimuCPULib.UI.Global
 	    private static Dictionary<string, IGraphicsElementFactory> _elementFactory = new Dictionary<string, IGraphicsElementFactory>();
 		public static Dictionary<string, IGraphicsElementFactory> ElementFactory
 		{
-			get { return Storage._elementFactory; }
-			set { Storage._elementFactory = value; }
+			get { return _elementFactory; }
+			set { _elementFactory = value; }
 		}
 
 	    public static string CPUInst { set; get; } = string.Empty;
@@ -29,37 +26,37 @@ namespace SimuCPULib.UI.Global
 		/// <summary>
 		/// 绘制API
 		/// </summary>
-		public static Graphics Graphics => Storage._graphics;
+		public static Graphics Graphics => _graphics;
 
 	    private static Bitmap _bitmap;
 
 		/// <summary>
 		/// 缓冲位图
 		/// </summary>
-		public static Bitmap Bitmap => Storage._bitmap;
+		public static Bitmap Bitmap => _bitmap;
 
 	    private static Size _size;
 
 		public static Size Size
 		{
-			get { return Storage._size; }
-			set { Storage._size = value; }
+			get { return _size; }
+			set { _size = value; }
 		}
 
 		private static Control _ctrl;
 
 		public static Control Ctrl
 		{
-			get { return Storage._ctrl; }
-			set { Storage._ctrl = value; }
+			get { return _ctrl; }
+			set { _ctrl = value; }
 		}
 
 		private static ToolTip _tip;
 
 		public static ToolTip Tip
 		{
-			get { return Storage._tip; }
-			set { Storage._tip = value; }
+			get { return _tip; }
+			set { _tip = value; }
 		}
 
 		private static Timer _delay;

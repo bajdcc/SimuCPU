@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SimuCPULib.UI.Global
+﻿namespace SimuCPULib.UI.Global
 {
 	/// <summary>
 	/// 记录图元/渲染器属性索引ID
@@ -91,7 +86,7 @@ namespace SimuCPULib.UI.Global
 	public enum ShapeType
 	{
 		Rectangle,
-		Ellipse,
+		Ellipse
 	}
 
 	public enum GradientType
@@ -100,6 +95,6 @@ namespace SimuCPULib.UI.Global
 		Horizontal,
 		Vertical,
 		Slash,
-		Backslash,
+		Backslash
 	}
 }

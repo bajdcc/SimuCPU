@@ -1,5 +1,5 @@
-﻿using SimuCPULib.Common.Simulator;
-using System.Drawing;
+﻿using System.Drawing;
+using SimuCPULib.Common.Simulator;
 
 namespace SimuCPULib.Common.Drawing
 {

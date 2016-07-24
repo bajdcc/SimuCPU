@@ -1,18 +1,14 @@
-﻿using SimuCPULib.UI.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using SimuCPULib.UI.Element;
 using SimuCPULib.UI.Global;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 
 namespace SimuCPULib.UI.Renderer
 {
 	public class LineElementRenderer : PenRenderer<LineElementRenderer, LineElement>
 	{
 		private List<Point> _pts;
-		bool _lazyBuild = false;
+		bool _lazyBuild;
 		bool _requireBuild = true;
 
 		protected override void _Render(Rectangle bound)

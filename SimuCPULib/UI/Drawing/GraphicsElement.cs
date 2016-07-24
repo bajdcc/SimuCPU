@@ -1,9 +1,5 @@
-﻿using SimuCPULib.UI.Global;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using SimuCPULib.UI.Global;
 
 namespace SimuCPULib.UI.Drawing
 {

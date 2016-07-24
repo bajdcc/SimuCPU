@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using SimuCPULib.CPU.Core;
 using SimuCPULib.CPU.Exception;
 
@@ -12,7 +8,7 @@ namespace SimuCPULib.CPU.Parser
     public enum OpType
     {
         Register,
-        Memory,
+        Memory
     }
 
     public static class OpParser

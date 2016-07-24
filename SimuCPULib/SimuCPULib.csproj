@@ -78,12 +78,19 @@
     <Compile Include="CPU\Interrupt\IntFactory.cs" />
     <Compile Include="CPU\Parser\OpParser.cs" />
     <Compile Include="CPU\Test\TestInst.cs" />
-    <Compile Include="GPU\Core\AsciiFactory.cs" />
+    <Compile Include="GPU\Ascii\AsciiFactory.cs" />
+    <Compile Include="GPU\Ascii\AsciiObject.cs" />
+    <Compile Include="GPU\Ascii\XmlHelper.cs" />
     <Compile Include="GPU\Core\DisplayHelper.cs" />
     <Compile Include="GPU\Core\FontBuilder.cs" />
     <Compile Include="GPU\Core\GPUDefines.cs" />
     <Compile Include="GPU\Core\IGPUDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Ascii.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ascii.resx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Drawing\GraphicsElement.cs" />
     <Compile Include="UI\Drawing\GraphicsRenderer.cs" />
     <Compile Include="UI\Drawing\IGraphicsElement.cs" />
@@ -110,7 +117,18 @@
     <Compile Include="UI\Renderer\SolidBrushRenderer.cs" />
     <Compile Include="UI\Renderer\TextElementRenderer.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Ascii.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ascii.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\AsciiXml.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\TestInst.asm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

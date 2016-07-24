@@ -93,7 +93,7 @@ namespace SimuCPULib.CPU.Core
 
     public class CPURegister
     {
-        private uint Bytes { set; get; } = 0;
+        private uint Bytes { set; get; }
 
         public uint Bit32 {
             set { Bytes = value; }
